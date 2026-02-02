@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valorant Valentine Slideshow</title>
+  <title>Valorant Valentine Mission</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
 
@@ -11,16 +11,20 @@
 
     body {
       font-family: 'Orbitron', sans-serif;
-      background: #0f1923;
+      background: #0f1923; /* Valorant Dark Blue */
       color: white;
       overflow: hidden;
+      /* Subtle scanline effect like a HUD */
+      background-image: linear-gradient(rgba(15, 25, 35, 0.9), rgba(15, 25, 35, 0.9)), url('https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt72097063c4819d92/64ce860e61f22e70e9b9400d/Val_Live_Update_8_7_Article_Banner_1920x1080_V2.jpg');
+      background-size: cover;
+      background-position: center;
     }
 
     .slider {
       display: flex;
-      width: 300vw;
+      width: 400vw;
       height: 100vh;
-      transition: transform 0.8s ease-in-out;
+      transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
     }
 
     .slide {
@@ -33,41 +37,62 @@
     }
 
     .card {
-      background: linear-gradient(135deg, rgba(255,70,85,0.2), rgba(0,0,0,0.7));
+      background: rgba(15, 25, 35, 0.85);
       border: 2px solid #ff4655;
-      border-radius: 20px;
+      border-left: 10px solid #ff4655; /* Tactical look */
       padding: 40px;
-      max-width: 900px;
+      max-width: 600px;
+      width: 100%;
       text-align: center;
-      box-shadow: 0 0 40px rgba(255,70,85,0.6);
+      box-shadow: 0 0 40px rgba(255, 70, 85, 0.3);
+      backdrop-filter: blur(10px);
     }
 
     h1 {
       color: #ff4655;
-      font-size: 2.8rem;
+      font-size: 2.2rem;
       margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
     }
 
     p {
-      font-size: 1.2rem;
-      line-height: 1.8;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ece8e1;
+    }
+
+    .btn-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
     }
 
     .btn {
-      margin-top: 30px;
       padding: 12px 30px;
-      border-radius: 30px;
-      border: 2px solid #ff4655;
+      border: 1px solid #ff4655;
       background: transparent;
       color: #ff4655;
-      font-size: 1rem;
+      font-size: 0.9rem;
+      font-weight: bold;
       cursor: pointer;
+      text-transform: uppercase;
+      transition: 0.3s;
     }
 
     .btn:hover {
       background: #ff4655;
       color: #0f1923;
-      box-shadow: 0 0 20px #ff4655;
+      box-shadow: 0 0 15px #ff4655;
+    }
+
+    #no-btn {
+      position: relative;
+      transition: all 0.2s ease;
+      border-color: #ece8e1;
+      color: #ece8e1;
     }
   </style>
 </head>
@@ -75,28 +100,40 @@
 
 <div class="slider" id="slider">
 
-  <!-- Slide 1 -->
   <div class="slide">
     <div class="card">
-      <h1>hey pranav</h1>
-      <button class="btn" onclick="next()">Next ▶</button>
+      <h1>Incoming Transmission...</h1>
+      <p>Target: <strong>Pranav</strong></p>
+      <button class="btn" onclick="next()">Open Message ▶</button>
     </div>
   </div>
 
-  <!-- Slide 2 -->
   <div class="slide">
     <div class="card">
+      <h1>Direct Message</h1>
       <p>
-        soo here we gooo thank you for being there for mee always even whn I was rudee to youu and sorry for some ego attitude but the love for you has never been less since 2023 and wanna continue this through my life idk abut the fate but will always be together by eachother side I love you the most my love
+        Thank you for being my Duo and being there for me always. Sorry for the ego/attitude sometimes, but my love for you has been 100% since 2023. I want to continue this mission with you for life. No matter the fate, we stay together. 
       </p>
       <button class="btn" onclick="next()">Next ▶</button>
     </div>
   </div>
 
-  <!-- Slide 3 -->
   <div class="slide">
     <div class="card">
-      <h1>will you be my valentine</h1>
+      <h1>Will you be my Valentine?</h1>
+      <p style="font-size: 0.8rem; color: #ff4655; margin-bottom: 10px;">TACTICAL DECISION REQUIRED</p>
+      <div class="btn-container">
+        <button class="btn" onclick="next()">YES</button>
+        <button class="btn" id="no-btn" onmouseover="moveNo()">NO</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="card">
+      <h1 style="color: #00ffcc;">MISSION ACCOMPLISHED</h1>
+      <p>I love you the most, my love! ❤️</p>
+      <p style="margin-top:10px; font-size: 0.8rem;">Ready for the next round?</p>
     </div>
   </div>
 
@@ -105,10 +142,21 @@
 <script>
   let index = 0;
   const slider = document.getElementById('slider');
+  const noBtn = document.getElementById('no-btn');
 
   function next() {
-    if (index < 2) index++;
+    if (index < 3) index++;
     slider.style.transform = `translateX(-${index * 100}vw)`;
+  }
+
+  function moveNo() {
+    // Moves the "No" button so he can't click it (Agent Jett style)
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    
+    noBtn.style.position = 'absolute';
+    noBtn.style.left = Math.min(x, 200) + 'px'; // Keeps it somewhat near
+    noBtn.style.top = Math.min(y, 100) + 'px';
   }
 </script>
 

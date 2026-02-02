@@ -3,20 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valorant Valentine</title>
+  <title>Valorant Valentine Slideshow</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Orbitron', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: radial-gradient(circle at top, #1a1f2b, #0f1923);
-      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      background: #0f1923;
+      color: white;
       overflow: hidden;
     }
 
@@ -24,210 +20,95 @@
       display: flex;
       width: 300vw;
       height: 100vh;
-      transition: transform 0.9s ease-in-out;
+      transition: transform 0.8s ease-in-out;
     }
 
     .slide {
       width: 100vw;
       height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 40px;
-      position: relative;
-    }
-
-    .agent {
-      position: absolute;
-      bottom: 0;
-      right: 5%;
-      font-size: 6rem;
-      opacity: 0.15;
+      align-items: center;
+      padding: 30px;
     }
 
     .card {
-      background: linear-gradient(135deg, rgba(255,70,85,0.18), rgba(0,0,0,0.7));
+      background: linear-gradient(135deg, rgba(255,70,85,0.2), rgba(0,0,0,0.7));
       border: 2px solid #ff4655;
-      border-radius: 22px;
-      padding: 50px;
+      border-radius: 20px;
+      padding: 40px;
       max-width: 900px;
-      box-shadow: 0 0 45px rgba(255,70,85,0.4);
-      animation: glow 2.5s infinite alternate;
-      z-index: 2;
-    }
-
-    @keyframes glow {
-      from { box-shadow: 0 0 20px rgba(255,70,85,0.3); }
-      to { box-shadow: 0 0 50px rgba(255,70,85,0.75); }
+      text-align: center;
+      box-shadow: 0 0 40px rgba(255,70,85,0.6);
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
       color: #ff4655;
+      font-size: 2.8rem;
+      margin-bottom: 20px;
     }
 
     p {
       font-size: 1.2rem;
-      line-height: 1.9;
+      line-height: 1.8;
     }
 
-    .controls {
-      position: fixed;
-      bottom: 25px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      z-index: 10;
-    }
-
-    button {
-      background: transparent;
-      border: 2px solid #ff4655;
-      color: #ff4655;
+    .btn {
+      margin-top: 30px;
       padding: 12px 30px;
-      font-size: 1rem;
       border-radius: 30px;
+      border: 2px solid #ff4655;
+      background: transparent;
+      color: #ff4655;
+      font-size: 1rem;
       cursor: pointer;
-      transition: all 0.3s ease;
     }
 
-    button:hover {
+    .btn:hover {
       background: #ff4655;
       color: #0f1923;
       box-shadow: 0 0 20px #ff4655;
-    }
-
-    .heart {
-      font-size: 4rem;
-      color: #ff4655;
-      margin-top: 20px;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-
-    .valentine-buttons {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .yes {
-      background: #ff4655;
-      color: #0f1923;
-      font-size: 1.1rem;
-      padding: 14px 40px;
-    }
-
-    .no {
-      position: relative;
-    }
-
-    .confetti {
-      position: fixed;
-      top: -10px;
-      font-size: 1.5rem;
-      animation: fall 3s linear infinite;
-    }
-
-    @keyframes fall {
-      to { transform: translateY(110vh) rotate(360deg); }
     }
   </style>
 </head>
 <body>
 
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c2fa1a8e0.mp3" type="audio/mpeg">
-</audio>
-
 <div class="slider" id="slider">
 
   <!-- Slide 1 -->
-  <section class="slide">
+  <div class="slide">
     <div class="card">
-      <h1>Hey Pranav</h1>
+      <h1>hey pranav</h1>
+      <button class="btn" onclick="next()">Next ▶</button>
     </div>
-    <div class="agent">⚡</div>
-  </section>
+  </div>
 
   <!-- Slide 2 -->
-  <section class="slide">
+  <div class="slide">
     <div class="card">
       <p>
-        Soo here we gooo 💖<br><br>
-        Thank you for being there for mee always, even whn I was rudee to youu.
-        And sorry for some ego attitude, but the love for you has never been less since 2023.
-        I wanna continue this through my life. Idk abut the fate, but we will always be together by each other’s side.
-        <br><br>
-        I love you the most, my love.
+        soo here we gooo thank you for being there for mee always even whn I was rudee to youu and sorry for some ego attitude but the love for you has never been less since 2023 and wanna continue this through my life idk abut the fate but will always be together by eachother side I love you the most my love
       </p>
+      <button class="btn" onclick="next()">Next ▶</button>
     </div>
-    <div class="agent">🔥</div>
-  </section>
+  </div>
 
   <!-- Slide 3 -->
-  <section class="slide">
+  <div class="slide">
     <div class="card">
-      <h1>Will you be my Valentine?</h1>
-      <div class="heart">❤</div>
-      <div class="valentine-buttons">
-        <button class="yes" onclick="celebrate()">YES 💖</button>
-        <button class="no" onmouseover="moveNo(this)">No 😜</button>
-      </div>
+      <h1>will you be my valentine</h1>
     </div>
-    <div class="agent">💘</div>
-  </section>
+  </div>
 
-</div>
-
-<div class="controls">
-  <button onclick="prevSlide()">◀ Prev</button>
-  <button onclick="nextSlide()">Next ▶</button>
 </div>
 
 <script>
   let index = 0;
   const slider = document.getElementById('slider');
 
-  function updateSlide() {
-    slider.style.transform = `translateX(-${index * 100}vw)`;
-  }
-
-  function nextSlide() {
+  function next() {
     if (index < 2) index++;
-    updateSlide();
-  }
-
-  function prevSlide() {
-    if (index > 0) index--;
-    updateSlide();
-  }
-
-  function moveNo(btn) {
-    btn.style.position = 'absolute';
-    btn.style.top = Math.random() * 300 + 'px';
-    btn.style.left = Math.random() * 300 + 'px';
-  }
-
-  function celebrate() {
-    for (let i = 0; i < 30; i++) {
-      const confetti = document.createElement('div');
-      confetti.className = 'confetti';
-      confetti.style.left = Math.random() * 100 + 'vw';
-      confetti.innerHTML = '❤';
-      document.body.appendChild(confetti);
-      setTimeout(() => confetti.remove(), 3000);
-    }
-    alert('YAYYYY ❤️ Best Valentine ever!');
+    slider.style.transform = `translateX(-${index * 100}vw)`;
   }
 </script>
 
